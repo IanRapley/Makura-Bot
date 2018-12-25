@@ -1,0 +1,19 @@
+{
+  "name": "makurabot",
+  "version": "2.0.0",
+  "description": "Makura no Soshi bot for Twitter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Twitter"
+  ],
+  "author": "Ian",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "nearley-unparse": "^1.0.1",
+    "twit": "^2.2.11"
+  }
+}
