@@ -4,15 +4,12 @@ var grammar = require("./grammar"); // Can update the grammar to get better list
 var dotenv = require('dotenv').config();
  
  
-// Need to understand how to hide these variables before pushing to GIT
-//  var T = new Twit({
-//  consumer_key:         process.env.envConsumer_key,
-//   consumer_secret:      process.env.envConsumer_secret,
-//   access_token:         process.env.envAccess_token,
-//   access_token_secret:  process.env.envAcess_secret,
-//   timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
-//   strictSSL:            true,     // optional - requires SSL certificates to be valid.
-// })
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
+
  
 var T = new Twit({
  consumer_key:    process.env.CONSK,
