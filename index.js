@@ -2,7 +2,7 @@ var Twit = require('twit')
 var unparse = require("nearley-unparse");
 var grammar = require("./grammar"); // Can update the grammar to get better lists 
 var dotenv = require('dotenv').config();
-var port = process.env.PORT || 808 
+var port = process.env.PORT || 8080;
 
 var T = new Twit({
  consumer_key:    process.env.CONSK,
