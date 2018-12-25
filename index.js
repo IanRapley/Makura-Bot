@@ -4,6 +4,10 @@ var grammar = require("./grammar"); // Can update the grammar to get better list
 var dotenv = require('dotenv').config();
 var port = process.env.PORT || 8080;
 
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
+});
+
 var T = new Twit({
  consumer_key:    process.env.CONSK,
   consumer_secret:     process.env.CONSS,
