@@ -1,11 +1,12 @@
 var Twit = require('twit')
-var unparse = require("nearley-unparse");
+var unparse = require("nearley-unparse"); //uses nearly grammar for madlibs
 var grammar = require("./grammar"); // Can update the grammar to get better lists 
-var dotenv = require('dotenv').config();
+var dotenv = require('dotenv').config(); //needed to protect twitter api details 
+
+
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 8080;
-
+var port = process.env.PORT || 8080;    // Needed to ensure heroku can listen to the right port - not needed for local running
 app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
 });
@@ -33,5 +34,5 @@ var Cycle = function() {
 	})
 }
 
-// retweet in every 5 minutes (300,000) 
-setInterval(Cycle, 300000);
+// retweet in every 5 minutes (300,000) 6 hours (21,600,000)
+setInterval(Cycle, 21600000);
