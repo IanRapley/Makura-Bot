@@ -3,6 +3,13 @@ var unparse = require("nearley-unparse"); //uses nearly grammar for madlibs
 var grammar = require("./grammar"); // Can update the grammar to get better lists 
 var dotenv = require('dotenv').config(); //needed to protect twitter api details 
 
+var reqTimer = setTimeout(function wakeUp() {
+   request("https://salty-peak-71175.herokuapp.com", function() {
+      console.log("WAKE UP DYNO");
+   });
+   return reqTimer = setTimeout(wakeUp, 1200000);
+}, 1200000);
+
 
 var express = require('express');
 var app = express();
