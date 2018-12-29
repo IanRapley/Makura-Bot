@@ -3,6 +3,8 @@ var unparse = require("nearley-unparse"); //uses nearly grammar for madlibs
 var grammar = require("./grammar"); // Can update the grammar to get better lists 
 var dotenv = require('dotenv').config(); //needed to protect twitter api details 
 
+
+const request = require('request'); // hopefully stops heroku timeout
 var reqTimer = setTimeout(function wakeUp() {
    request("https://salty-peak-71175.herokuapp.com", function() {
       console.log("WAKE UP DYNO");
