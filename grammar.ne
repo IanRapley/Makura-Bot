@@ -1,28 +1,32 @@
-main    -> (ADJNOUN "\n" ADJNOUN "\n" ADJNOUN)
+main    -> (Title "\n" ADJNOUN "\n" ADJNOUN "\n" ADJNOUN)
+Title -> TitleDescriptor " Things"|"Things That Are " TitleDescriptor
+
+TitleDescriptor -> "Shameful" |"Delightful" |"Pitiable" |"Disappointing" |"Timely" |"Wanton" |"Woeful" |"Amusing" |"Touching" |"Memorable" |"Charming" |"Shocking"
+
 ADJNOUN -> "A" ITEM|CONTACT TIMING:?
 ITEM -> POSSESSION:? PEOPLE|COLOUR:? OBJECT|LITERATURE|ANIMAL|BIRD|SEASON:? WEATHER|COLOUR:? TEXTURE:? CLOTHING|INSTRUMENT
 
-SONIC	-> LITERATURE " read by a" PEOPLE|BIRDSONG BIRD|CLOTHINGSOUND COLOUR:? TEXTURE:? CLOTHING|INSTRUMENT " played by a" PEOPLE
+SONIC	-> LITERATURE " read by a" PEOPLE|INSTRUMENT " played by a" PEOPLE
 VITEM	-> POSSESSION:? PEOPLE|COLOUR:? OBJECT|ANIMAL|BIRD|SEASON:? WEATHER|COLOUR:? TEXTURE:? CLOTHING|INSTRUMENT
-CONTACT -> "A Glimpse of a" VITEM| "The sight of a" VITEM|"The sound of a" SONIC
+CONTACT -> "The glimpse of a" VITEM| "The sight of a" VITEM|"The sound of a" SONIC|	"The rustle of a" COLOUR:? TEXTURE:? CLOTHING|BIRDSONG BIRD
 TIMING  -> " in the" SEASON WEATHER:?
-BIRDSONG -> " the call of a"|" the song of a"| " a singing"
-CLOTHINGSOUND -> " a rustling"|"a swishing"
+BIRDSONG -> "The call of a"|"The song of a"| "A singing"
+
 
 # Adjectives
-COLOUR  -> " Red"|" Yellow "|" Purple"|" Grey"|" Dusky" COLOUR|" Green"|" Red"|" Blue"|" Shaded"|" Flowered"|" White"|" Patterned"|" Silver"| " Gold"| " Bronze"			  | " Brass"
-SEASON	-> " Morning"|" Dusk"|" Spring"|" Summer"|" Winter"|" Dawn"
-TEXTURE	-> " Chinese"|" Korean"|" Northern"|" Small"|" Silk"|" Damask"
-SEASON	   -> " Morning"|" Dusk"|" Spring"|" Summer"|" Winter"|" Dawn"
+COLOUR  -> " red"|" yellow "|" purple"|" grey"|" green"|" red"|" blue"|" shaded"|" flowered"|" white"|" patterned"|" silver"| " gold"| " bronze"
+SEASON	-> " morning"|" dusk"|" spring"|" summer"|" winter"|" dawn"
+TEXTURE	-> " Chinese"|" Korean"|" northern"|" small"|" silk"
+SEASON	   -> " morning"|" spring"|" summer"|" winter"|" dawn"
 
 
 # Core Items
 POSSESSION -> PEOPLE "'s" 
-PEOPLE     -> " Lover"|" Servant"|" Girl"|" Boy"|" Empress"|" Sister"|" Lover"|" Friend"|" Peasant"|" Priest"
-OBJECT     -> " Box"|" Envelope"|" Incense"|" Flower"|" Vase"|" Cup"|" fan"|" scroll"|" plate"|" rake"
-LITERATURE -> " Letter"|" Poem"|" Sutra"|" Tanka"
-INSTRUMENT -> " Koto"|" Shaminsen"|" Flute"
-ANIMAL     -> " Goose"|" Ox"|" Birds"|" Crane"|" Carp"|" Turtle"|" Cat"|" Dog"|" Crow"|" Salmon"|" Monkey"|" Bear"|" Boar"|" Nightingale"|" Egret"
-BIRD -> " Goose"|" Ox"|" Birds"|" Crane"|" Carp"|" Turtle"|" Cat"|" Dog"|" Crow"|" Salmon"|" Monkey"|" Bear"|" Boar"|" Nightingale"|" Egret"
-WEATHER    -> " Snow"|" Rain"|" Night"|" Sun"|" Shade"|" Cloud"
-CLOTHING   -> " Robe"|" Sleeve"|" Gown"|" Hat"|" Cowl"|" Veil"|" Shawl"|" Slipper"|" Sandal"
+PEOPLE     -> " lover"|" servant"|" girl"|" boy"|" empress"|" sister"|" lover"|" friend"|" peasant"|" priest"
+OBJECT     -> " box"|" envelope"|" incense"|" flower"|" vase"|" cup"|" fan"|" scroll"|" plate"|" rake"
+LITERATURE -> " letter"|" poem"|" sutra"|" tanka"
+INSTRUMENT -> " koto"|" shaminsen"|" flute"
+ANIMAL     -> " goose"|" ox"|" crane"|" carp"|" turtle"|" cat"|" dog"|" crow"|" salmon"|" monkey"|" bear"|" boar"|" nightingale"|" egret"
+BIRD -> 	  " goose"|" crane"|" crow"|" nightingale"|" egret"
+WEATHER    -> " snow"|" rain"|" night"|" sun"|" shade"|" cloud"
+CLOTHING   -> " robe"|" sleeve"|" gown"|" hat"|" veil"|" shawl"|" slipper"|" sandal"
