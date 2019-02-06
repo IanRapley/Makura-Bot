@@ -1,15 +1,15 @@
-main    -> (StructureOne|StructureTwo)
+main    -> StructureOne|StructureTwo
 StructureOne -> Title "\n\n" ADJNOUN "\n" ADJNOUN "\n" ADJNOUN "\n#JAPAN"
-StructureTwo -> "A" SimpleItem " should be" TypeTwo "\n\nSo should " ADJNOUNa "\n" ADJNOUNb "\n" ADJNOUNb " \n#JAPAN"
+StructureTwo -> "A" SimpleItem " should be" TypeTwo "\n\nSo should " ADJNOUNa "\n" ADJNOUNb "\n" ADJNOUNb " \n" HASHTAG
 Title -> TitleDescriptor " Things"|"Things That Are " TitleDescriptor
 TitleDescriptor -> "Shameful" |"Delightful" |"Pitiable" |"Disappointing" |"Timely" |"Wanton" |"Woeful" |"Amusing" |"Touching" |"Memorable" |"Charming" |"Shocking"|"Poetic"|"Common"|"Rare"|"Incomparable"|"Unsuitable"|"Adorable"
 TypeTwo -> " old" |" new" |" large" |" dark" |" light" |" small"|" plump"|" rare"
-
+HASHTAG -> "#Japan"|"#Nihon"|"#Poem"|"#Poetry"|"#Literature"
 
 ADJNOUN -> "A" ITEM|CONTACT TIMING:?|"A" ITEM|CONTACT TIMING:?|"A" ITEM|CONTACT TIMING:?| TIMEWHEN 
 ADJNOUNa -> "a" ITEM
 ADJNOUNb -> "A" ITEM|CONTACT TIMING:?|"A" ITEM|CONTACT TIMING:?|"A" ITEM|CONTACT TIMING:?
-ITEM -> POSSESSION:? PEOPLE|COLOUR:? OBJECT|LITERATURE|ANIMAL|BIRD
+ITEM -> POSSESSION:? PEOPLE|COLOUR:? OBJECT|LITERATURE|ANIMAL|BIRD|FLOWER
 SimpleItem -> PEOPLE|COLOUR:? OBJECT|ANIMAL|BIRD
 WEATHER|COLOUR:? TEXTURE:? CLOTHING|INSTRUMENT
 SONIC	-> LITERATURE " read by a" PEOPLE|INSTRUMENT " played by a" PEOPLE
@@ -19,7 +19,7 @@ CONTACT -> "The glimpse of a" VITEM| "The sight of a" VITEM|"The sound of a" SON
 TIMING  -> " in the" SEASON WEATHER:?|" in the" DATE
 BIRDSONG -> "The call of a"|"The song of a"| "A singing"
 TIMEANDWEATHER -> SEASON TIMEODAY:?|SEASON WEATHER|TIMEODAY WEATHER:?|WEATHER
-TIMEWHEN -> TIME " when" SETTINGIN " and" EVENTSIN|TIME " when" SETTINGOUT " and" EVENTSOUT
+TIMEWHEN -> TIME " when" SETTINGIN " and" EVENTSIN|TIME " when" SETTINGOUT " and" EVENTSOUT|TIME " when" LETTERSENT " and" LETTEREVENT
 
 #Once when structure
 TIME -> "Once"|"One day"|"One time"|"One day"|"Back"|"In the" DATE
@@ -33,6 +33,13 @@ DISTANTEVENT -> " snow falling in" LOCATIONOUT|" mist in the" LOCATIONOUT|" cran
 LOCATIONIN -> " the palace gardens"|" a back corridor"|" a temple in the west"|" the palace"|" the Empress's quarters"|" the guardhouse by the front gate"|" the moon rising over" LOCATIONIN
 LOCATIONOUT -> " the hills"|" the valley"|" the village"|" the roadway"|" the forest"
 PLACEOUT -> " Oji"|" Hyuga"|" Nara"|" Ise"
+LETTERSENT -> SENDER " sent me a" LETTER
+LETTEREVENT -> " my" RELATIVE " person read it"|LETTERA LETTERCONDITION
+SENDER -> " my lover"|" Kiyonari"|" the Empress"|" my friend"|" a certain gentleman"
+LETTER-> " letter"|" poem"|" note"
+LETTERA -> " the paper"|" the envelope"|" it"
+LETTERCONDITION -> " was" WRAPPED " with" FLOWER
+WRAPPED -> " wrapped"| " wound"|" tied"|" bound"|" woven"
 
 # Adjectives
 COLOUR  -> " red"|" yellow "|" purple"|" grey"|" green"|" red"|" blue"|" shaded"|" flowered"|" white"|" patterned"|" silver"| " gold"| " bronze"
@@ -55,3 +62,5 @@ BIRD -> 	  " goose"|" crane"|" crow"|" nightingale"|" egret"
 TIMEODAY   -> " night"|" dawn"|" twilight"|" dusk"|" evening"
 WEATHER    -> " snow"|" rain"|" sun"|" shade"|" cloud"|" mist"| " fog"
 CLOTHING   -> " robe"|" sleeve"|" gown"|" hat"|" veil"|" shawl"|" slipper"					 |" sandal"
+FLOWER -> " grass"|" peonies"|" irises"|" lillies"|" flowers"|" maple leaves"|" a bough of" TREE|" flowers from the" TREE| TREE " leaves "
+TREE -> " oak"|" beech"|" pine"|" maple"|" ginko"|" plum"|" cherry"
