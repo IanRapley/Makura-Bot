@@ -54,4 +54,4 @@ var Cycle = function() {
 }
 
 // retweet in every 5 minutes (300,000) 6 hours (21,600,000)
-setInterval(Cycle, 300000);
+setInterval(Cycle, 21600000);
