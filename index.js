@@ -1,6 +1,7 @@
 var Twit = require('twit')
 var unparse = require("nearley-unparse"); //uses nearly grammar for madlibs
-var grammar = require("./grammar"); // Can update the grammar to get better lists 
+var grammarA = require("./grammar"); // Can update the grammar to get better lists
+var grammarB = require("./Grammar-poetry"); 
 var dotenv = require('dotenv').config(); //needed to protect twitter api details 
 
 
@@ -35,7 +36,16 @@ var T = new Twit({
 //
 
 var Cycle = function() {
-	var src = unparse(grammar);
+
+	if (Math.random() <0.5) {
+
+	var	src = unparse(grammarA);
+
+	} else {
+
+	var	src = unparse(grammarB);
+
+	}
 	
 	T.post('statuses/update', { status: src }, function(err, data, response) {
 		console.log(data)
@@ -44,4 +54,4 @@ var Cycle = function() {
 }
 
 // retweet in every 5 minutes (300,000) 6 hours (21,600,000)
-setInterval(Cycle, 21600000);
+setInterval(Cycle, 300000);
