@@ -30,7 +30,24 @@ var T = new Twit({
   strictSSL:            true,     // optional - requires SSL certificates to be valid.
 }) 
  
- 
+
+
+if (Math.random() <0.5) {
+
+	var	src = unparse(grammarA);
+
+	} else {
+	
+	var	src = unparse(grammarB);
+
+	}
+	
+T.post('statuses/update', { status: src }, function(err, data, response) {
+		console.log(data)
+		console.log(src)
+	})
+
+
 //
 //  function generates a phrase from the grammar and passes it to twitter 
 //
